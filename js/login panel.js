@@ -8,7 +8,7 @@ function checkLogin(event) {
 
     // التحقق من صحة البيانات المدخلة
     if ((username === "7ORS" && password === "852010") || 
-        (username === "Nero x" && password === "7774527") ||
+        (username === "Schider" && password === "838555") ||
         (username === "alknass22" && password === "289199") ||
         (username === "3_1.4" && password === "258963147")) {
 
