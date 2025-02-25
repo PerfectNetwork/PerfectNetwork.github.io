@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" data-bs-theme-mode="dark" dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Perfect Network | برفكت نيتورك</title>
+    <link rel="icon" href="imgs/body/logo.png">
+    <link rel="apple-touch-icon" href="imgs/body/logo.png">
+    <meta name="description" content="برفكت نيتورك للحياة الواقعية">
+    <meta name="keywords" content="roleplay,game,MTASA,GTA,حياة واقعية,رول بلاي,لعبة,عربي,برفكت نيتورك,الأفضل">
+    
+ <!-- Meta Tags الخاصة بالتضمين -->
+ <meta property="og:title" content="Perfect Network | برفكت نيتورك" />
+ <meta property="og:description" content="برفكت نيتورك للحياة الواقعية، عالم مليء بالإثارة والتحدي." />
+ <meta property="og:image" content="https://imgur.com/a/Spqgv1F" />
+ <meta property="og:url" content="https://perfectnetwork.github.io/" />
+ <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- روابط المكتبات الخارجية -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="location.reload();">
+                <img src="imgs/body/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="https://perfectnetwork.github.io/">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us">عن السيرفر</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rules.html">القوانين</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Families.html">العائلات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apps.html">التقديمات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">المتجر</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/oauth2/authorize?client_id=1178502660366811206&response_type=code&redirect_uri=https%3A%2F%2Fperfectnetwork.github.io%2Fphp%2Fprocess-oauth.php&scope=identify+email+guilds">
+                            <i class="fa-brands fa-discord"></i>
+                            ربط الدسكورد
+                        </a>
+                    </li>
+                </ul>
+                <a href="login panel.html" class="btn btn-outline-light">تسجيل دخول</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البطل (الصفحة الرئيسية) -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="imgs/body/background logo.png" alt="Logo" class="animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__fadeIn"> <span id="typedtext"></span></h1>
+            <a href="#" class="btn btn-lg btn-light-danger mt-5 animate__animated animate__fadeInUp">العب الآن</a>
+        </div>
+    </section>
+
+    <!-- قسم عن السيرفر -->
+    <section id="about-us" class="container py-5">
+        <i class="fs-3 fa-badge-check fa-light ms-2 text-danger"></i>
+        <h1 class="text-center text-white">سيرفر <span class="text-danger">برفكت نيتورك</span> للحياة الواقعية</h1>
+        <p class="text-center fs-4">سيرفر "برفكت نيتورك" للحياة الواقعية هو مجتمع افتراضي داخل منصة MTA:SA يهدف إلى توفير بيئة ممتعة ومرحة للأشخاص الذين يرغبون في التواصل والتفاعل مع بعضهم البعض داخل عالم افتراضي. يعتبر هذا السيرفر مكانًا للترفيه والتسلية والتعارف، حيث يمكن للأعضاء التفاعل مع بعضهم البعض من خلال تقمص الأدوار الواقعية والألعاب والفعاليات المختلفة.</p>
+    </section>
+
+<!-- الإحصائيات -->
+<div class="container py-10" id="server-stats"> 
+    <div class="card"> 
+        <div class="d-flex flex-center"> 
+            <div class="d-flex flex-center flex-wrap justify-content-lg-between mx-auto text-center w-xl-900px"> 
+                <div class="d-flex flex-center flex-column h-125px h-lg-250px m-3 w-200px w-lg-250px"> 
+                    <i class="fa-solid fa-users"></i>
+                    <div class="stat-number" data-count="120">0</div>
+                    <div class="stat-label">الحسابات المسجلة</div>
+                </div> 
+                <div class="d-flex flex-center flex-column h-125px h-lg-250px m-3 w-200px w-lg-250px"> 
+                    <i class="fa-solid fa-chart-line"></i>
+                    <div class="stat-number" data-count="90">0</div>
+                    <div class="stat-label">أعلى متصلين</div>
+                </div> 
+                <div class="d-flex flex-center flex-column h-125px h-lg-250px m-3 w-200px w-lg-250px"> 
+                    <i class="fa-solid fa-user"></i>
+                    <div class="stat-number" data-count="130">0</div>
+                    <div class="stat-label">الشخصيات</div>
+                </div> 
+            </div> 
+        </div> 
+        <div class="mb-3 text-center text-gray-400" style="direction:rtl">الاحصائيات للموسم الحالي (الموسم الاول)</div> 
+    </div> 
+</div>
+
+<!-- النص المتحرك -->
+<div id="typedtext"></div>
+
+    <!-- قسم سيرفرات الدسكورد -->
+    <div class="container py-10"> 
+        <h1 class="text-center mb-10">سيرفرات الدسكورد الرسمية</h1> 
+        <div class="row row-cols-2 row-cols-md-4"> 
+            <div class="col"> 
+                <a href="https://discord.gg/sFpDVXmtVP" class="card hover-elevate-up" target="__blank"> 
+                    <img alt="" src="imgs/Discord Servers Section/Gang server 2.png" class="card-img-top"> 
+                    <div class="card-body"> 
+                        <p class="card-text">العصابات</p> 
+                    </div> 
+                </a> 
+            </div> 
+            <div class="col"> 
+                <a href="https://discord.gg/HjS6dJWMxD" class="card hover-elevate-up" target="__blank"> 
+                    <img alt="" src="imgs/Discord Servers Section/Facation server 2.png" class="card-img-top"> 
+                    <div class="card-body"> 
+                        <p class="card-text">الفاكشنات</p> 
+                    </div> 
+                </a> 
+            </div> 
+            <div class="col"> 
+                <a href="https://discord.gg/CMjQjGAVG2" class="card hover-elevate-up" target="__blank"> 
+                    <img alt="" src="imgs/Discord Servers Section/Technical support server 2.png" class="card-img-top"> 
+                    <div class="card-body"> 
+                        <p class="card-text">الدعم الفني</p> 
+                    </div> 
+                </a> 
+            </div> 
+            <div class="col"> 
+                <a href="https://discord.gg/perfectrp" class="card hover-elevate-up" target="__blank"> 
+                    <img alt="" src="imgs/Discord Servers Section/Official server 2.png" class="card-img-top"> 
+                    <div class="card-body"> 
+                        <p class="card-text">الرئيسي</p> 
+                    </div> 
+                </a> 
+            </div> 
+        </div> 
+    </div>
+    <footer class="d-flex flex-column align-items-center animate__animated animate__slideInUp border-top flex-sm-row justify-content-between py-5 shadow-light">
+        <div>
+            <a href="/" class="d-flex align-items-center link-body-emphasis mb-3 text-decoration-none">
+                <a class="navbar-brand" href="#" onclick="location.reload();">
+                    <img src="imgs/body/background logo.png" alt="Logo">
+                </a>
+            </a>
+        </div>
+        <div style="text-align: center;">
+            <!-- شخصية 1 -->
+            <div class="character-card" style="display: inline-block; text-align: center; margin: 10px; transform: translateY(0px);">
+                <img src="imgs/Administration Department/Mohammed.png" alt="PERFECT - 3ssf" style="width: 100px; height: 100px; border-radius: 50%;">
+                <div class="card-body" style="margin-top: 10px;">
+                    <h5 class="card-title" style="color: white;">PERFECT - 3ssf</h5>
+                    <p class="card-text" style="color: #000000;">Coummunity Owner</p>
+                </div>
+            </div>
+        
+            <!-- شخصية 2 -->
+            <div class="character-card" style="display: inline-block; text-align: center; margin: 10px; transform: translateY(0px);">
+                <img src="imgs/Administration Department/sCAy.png" alt="PERFECT - SCAY" style="width: 100px; height: 100px; border-radius: 50%;">
+                <div class="card-body" style="margin-top: 10px;">
+                    <h5 class="card-title" style="color: white;">PERFECT - SCAY</h5>
+                    <p class="card-text" style="color: #000000;">Coummunity Owner</p>
+                </div>
+            </div>
+        
+            <!-- شخصية 3 -->
+            <div class="character-card" style="display: inline-block; text-align: center; margin: 10px; transform: translateY(0px);">
+                <img src="imgs/Administration Department/6i.b.png" alt="PERFECT - SϲнєiDєя" style="width: 100px; height: 100px; border-radius: 50%;">
+                <div class="card-body" style="margin-top: 10px;">
+                    <h5 class="card-title" style="color: white;">PERFECT - SϲнєiDєя</h5>
+                    <p class="card-text" style="color: #fa0000;">Founder</p>
+                </div>
+            </div>
+        
+            <!-- شخصية 4 -->
+            <div class="character-card" style="display: inline-block; text-align: center; margin: 10px; transform: translateY(0px);">
+                <img src="imgs/Administration Department/omar.png" alt="PERFECT -OMAR" style="width: 100px; height: 100px; border-radius: 50%;">
+                <div class="card-body" style="margin-top: 10px;">
+                    <h5 class="card-title" style="color: white;">PERFECT -OMAR</h5>
+                    <p class="card-text" style="color: #fa0000;">Founder</p>
+                </div>
+            </div>
+        </div>
+              
+        <div>
+            <a href="https://discord.gg/perfectrp" target="_blank" class="footer-link shadow-light">
+                <span class="fab fa-discord fs-1"></span>
+            </a>
+        </div>
+    </footer>
+        
+        <p class="text-center" style="color: #8ca2be;">
+            © 2024 Copyright Perfect Network. Developed by (SCAY) / (7ORS)
+        </p>
+    </div>
+    
+
+    <!-- سكريبت المكتبات -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="js/home.js"></script> <!-- ربط ملف JavaScript الخارجي -->
+
+</body>
+</html>

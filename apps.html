@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" data-bs-theme-mode="dark" dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Perfect Network | برفكت نيتورك</title>
+    <link rel="icon" href="imgs/body/logo.png">
+    <link rel="apple-touch-icon" href="imgs/body/logo.png">
+    <meta name="description" content="برفكت نيتورك للحياة الواقعية">
+    <meta name="keywords" content="roleplay,game,MTASA,GTA,حياة واقعية,رول بلاي,لعبة,عربي,برفكت نيتورك,الأفضل">
+    
+ <!-- Meta Tags الخاصة بالتضمين -->
+ <meta property="og:title" content="Perfect Network | برفكت نيتورك" />
+ <meta property="og:description" content="برفكت نيتورك للحياة الواقعية، عالم مليء بالإثارة والتحدي." />
+ <meta property="og:image" content="https://imgur.com/a/Spqgv1F" />
+ <meta property="og:url" content="https://perfectnetwork.github.io/" />
+ <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- روابط المكتبات الخارجية -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="location.reload();">
+                <img src="imgs/body/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="https://perfectnetwork.github.io/">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us">عن السيرفر</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rules.html">القوانين</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Families.html">العائلات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="opss.html">التقديمات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="opss.html">المتجر</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/oauth2/authorize?client_id=1178502660366811206&response_type=code&redirect_uri=https%3A%2F%2Fperfectnetwork.github.io%2Fphp%2Fprocess-oauth.php&scope=identify+email+guilds">
+                            <i class="fa-brands fa-discord"></i>
+                            ربط الدسكورد
+                        </a>
+                    </li>
+                </ul>
+                <a href="login panel.html" class="btn btn-outline-light">تسجيل دخول</a>
+            </div>
+        </div>
+    </nav>
+    <style>
+        :root {
+            --primary-red: #00c8ffb3;
+            --primary-gray: #0d1112;
+            --status-green: #28a745;
+            --status-red: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            cursor: url('files/cursor.png'), auto;
+        }
+
+        body {
+            background-color: var(--primary-gray);
+            color: white;
+            overflow-x: auto;
+        }
+
+        header {
+            background-color: var(--primary-red);
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .application-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .application-card {
+            background: linear-gradient(145deg, #1a1e1f, #0d1112);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 300px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--primary-red);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .application-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px #00c8ffb3;
+        }
+
+        .application-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .application-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .status-open {
+            background-color: var(--status-green);
+            color: white;
+        }
+
+        .status-closed {
+            background-color: var(--status-red);
+            color: white;
+        }
+
+        .apply-btn.disabled {
+            background: #666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .apply-btn.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .application-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .application-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .application-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .application-card h2 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .application-card p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .apply-btn {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            width: 200px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .apply-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #00c8ffb3;
+        }
+
+        .settings-btn, .discord-btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .settings-btn {
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .discord-btn {
+            --icon-size: 30px;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .settings-btn img, .discord-btn img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .settings-btn:hover, .discord-btn:hover {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.2);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav h2 {
+            font-family: 'Cairo', sans-serif;
+            margin-right: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            background: linear-gradient(145deg, var(--primary-gray), #2a2021);
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .applications-title {
+            text-align: center;
+            margin: 4rem 0;
+            color: var(--primary-red);
+            font-size: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .applications-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .application-form {
+            display: none;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: linear-gradient(145deg, #1a1e1f, #0d1112);
+            border-radius: 15px;
+            border: 2px solid var(--primary-red);
+        }
+
+        .application-form.active {
+            display: block;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--primary-red);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 200px;
+            margin: 2rem auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #00c8ffb3;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .accept-btn, .reject-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .accept-btn {
+            background-color: var(--status-green);
+            color: white;
+        }
+
+        .reject-btn {
+            background-color: var(--status-red);
+            color: white;
+        }
+
+        .accept-btn:hover, .reject-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#" onclick="location.reload();">
+                    <img src="https://h.top4top.io/p_321693qxh1.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="https://perfectnetwork.github.io/">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about-us">عن السيرفر</a></li>
+                        <li class="nav-item"><a class="nav-link" href="rules.html">القوانين</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Families.html">العائلات</a></li>
+                        <li class="nav-item"><a class="nav-link" href="apps.html">التقديمات</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.html">المتجر</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://discord.com/oauth2/authorize?client_id=1178502660366811206&response_type=code&redirect_uri=https%3A%2F%2Fperfectnetwork.github.io%2F&scope=identify+email">
+                                <i class="fa-brands fa-discord"></i>
+                                ربط الدسكورد
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="login panel.html" class="btn btn-outline-light">تسجيل دخول</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <h1 class="applications-title">قسم التقديمات</h1>
+
+    <div class="application-container">
+        <div class="application-card">
+            <h2>التقديم لدخول طاقم المبرمجين</h2>
+            <img src="imgs/body/ext.png" alt="Company Application">
+            <p>فرصتك للانضمام إلى فريق عملنا المحترف</p>
+            <div class="status-badge status-open">متاح</div>
+            <button class="apply-btn" onclick="showApplicationForm('company')">قدم الآن</button>
+        </div>
+
+        <div class="application-card">
+            <h2>التقديم لدخول طاقم الاداره</h2>
+            <img src="imgs/body/staffs.png" alt="Admin Application">
+            <p>انضم إلى الينا وكن جزءاً من ادارتنا المميزه</p>
+            <div class="status-badge status-open">متاح</div>
+            <button class="apply-btn" onclick="showApplicationForm('admin')">قدم الآن</button>
+        </div>
+    </div>
+
+    <div id="companyForm" class="application-form">
+        <h2>التقديم لدخول طاقم المبرمجين</h2>
+        <form onsubmit="submitApplication(event, 'company')">
+            <div class="form-group">
+                <label>إسمك</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>عمرك</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>اسم المستخدم الخاص بك في الديسكورد</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>اعمالك</label>
+                <input type="url" placeholder="رابط صورة للاعمال" required>
+            </div>
+            <div class="form-group">
+                <label>ما هي اللغات التي تميزك عن غيرك</label>
+                <input type="text" required>
+            </div>
+            <button type="submit" class="submit-btn">إرسال التقديم</button>
+        </form>
+    </div>
+
+    <div id="adminForm" class="application-form">
+        <h2>التقديم للإدارة</h2>
+        <form onsubmit="submitApplication(event, 'admin')">
+            <div class="form-group">
+                <label>اسمك الكامل</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>عمرك</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>اسم المستخدم الخاص بك في الديسكورد</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>خبراتك السابقة في الإدارة</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>لماذا تريد الانضمام إلى فريق الإدارة؟</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>ما هي رؤيتك لتطوير المجتمع؟</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>إسم الـشخصية</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>إيدي الحساب</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>اسم المستخدم الخاص بك في الديسكورد</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>PG</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>DM</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>MG</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>GR</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>CK</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>PK</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/GOTO</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/GET HERE</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/GET VEH</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/GOTO VEH</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/A</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/jail</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>/UN jail</label>
+                <textarea required></textarea>
+            </div>
+            <div class="form-group">
+                <label>عدد ساعات الشخصية</label>
+                <input type="url" placeholder="رابط صورة عدد الساعات" required>
+            </div>
+            <div class="form-group">
+                <label>هيستوري الحساب</label>
+                <input type="url" placeholder="رابط صورة الهيستوري" required>
+            </div>
+            <button type="submit" class="submit-btn">إرسال التقديم</button>
+        </form>
+    </div>
+
+    <script>
+        // Webhook URLs for different application types
+        const webhookURLs = {
+            company: 'https://discord.com/api/webhooks/1331327805505540197/tFIo_6rPoTQAcE9H23X27Mpwv1of3FXISEFfXNWZpBVLz5IP0zkRKJzIOBj7FRPkaHP9',
+            admin: 'https://discord.com/api/webhooks/1328698331467350046/T-5fWcRxa-p6QNGCeJmKC3b2QCRz5NkLP9mWvrmrzravLYmHUilWN9IEshh1B1-LJ3Dy'
+        };
+
+        // Application status configuration
+        const applicationStatus = {
+            company: {
+                isOpen: false,
+                buttonText: 'قدم الآن',
+                closedText: 'مغلق حاليًا'
+            },
+            admin: {
+                isOpen: false,
+                buttonText: 'قدم الآن',
+                closedText: 'مغلق حاليًا'
+            }
+        };
+
+        // Check if user can submit application
+        function canSubmitApplication() {
+            const lastSubmissionTime = localStorage.getItem('lastSubmissionTime');
+            if (!lastSubmissionTime) return true;
+            
+            const timeDiff = Date.now() - parseInt(lastSubmissionTime);
+            const minutesPassed = Math.floor(timeDiff / (1000 * 60));
+            
+            return minutesPassed >= 15;
+        }
+
+        function updateApplicationStatus() {
+            Object.keys(applicationStatus).forEach(type => {
+                const card = document.querySelector(`.application-card:has(button[onclick*="${type}"])`);
+                const statusBadge = card.querySelector('.status-badge');
+                const applyButton = card.querySelector('.apply-btn');
+
+                if (applicationStatus[type].isOpen) {
+                    statusBadge.textContent = 'متاح';
+                    statusBadge.className = 'status-badge status-open';
+                    applyButton.textContent = applicationStatus[type].buttonText;
+                    applyButton.disabled = false;
+                    applyButton.classList.remove('disabled');
+                } else {
+                    statusBadge.textContent = 'مغلق';
+                    statusBadge.className = 'status-badge status-closed';
+                    applyButton.textContent = applicationStatus[type].closedText;
+                    applyButton.disabled = true;
+                    applyButton.classList.add('disabled');
+                }
+            });
+        }
+
+        function showApplicationForm(type) {
+            if (!applicationStatus[type].isOpen) {
+                alert('عذراً، التقديم مغلق حالياً');
+                return;
+            }
+
+            if (!canSubmitApplication()) {
+                const lastSubmissionTime = parseInt(localStorage.getItem('lastSubmissionTime'));
+                const timeLeft = 15 - Math.floor((Date.now() - lastSubmissionTime) / (1000 * 60));
+                alert(`عذراً، يجب الانتظار ${timeLeft} دقيقة قبل التقديم مرة أخرى`);
+                return;
+            }
+
+            document.querySelector('.application-container').style.display = 'none';
+            document.querySelector(`#${type}Form`).classList.add('active');
+        }
+
+        async function submitApplication(event, type) {
+            event.preventDefault();
+
+            if (!canSubmitApplication()) {
+                const lastSubmissionTime = parseInt(localStorage.getItem('lastSubmissionTime'));
+                const timeLeft = 15 - Math.floor((Date.now() - lastSubmissionTime) / (1000 * 60));
+                alert(`عذراً، يجب الانتظار ${timeLeft} دقيقة قبل التقديم مرة أخرى`);
+                return;
+            }
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            const webhookURL = webhookURLs[type];
+
+            const message = {
+                content: "<@&1236696991183142984> - <@&1236696913324277810>",
+                embeds: [{
+                    title: `تقديم جديد - ${type === 'Programming' ? 'البرمجه' : type === 'technical support' ? 'الدعم الفني' : 'البرمجه'}`,
+                    color: 0xc50d25,
+                    image: {
+                        url: 'https://g.top4top.io/p_32937i6g91.png'
+                    },
+                    fields: Array.from(form.elements).filter(element => element.tagName !== 'BUTTON').map(element => {
+                        const label = element.previousElementSibling.textContent;
+                        let emoji = '';
+                        
+                        if (label.includes('اسم')) emoji = '👤';
+                        else if (label.includes('عمر')) emoji = '🎂';
+                        else if (label.includes('الايدي')) emoji = '🆔';
+                        else if (label.includes('ديسكورد')) emoji = '📱';
+                        else if (label.includes('خبرات')) emoji = '💼';
+                        else if (label.includes('هيستوري')) emoji = '📜';
+                        else if (label.includes('ساعات')) emoji = '⏰';
+                        else if (label.includes('PG')) emoji = '📝';
+                        else if (label.includes('MG')) emoji = '📋';
+                        else if (label.includes('GR')) emoji = '📌';
+                        else if (label.includes('DOS')) emoji = '📎';
+                        else if (label.includes('SK')) emoji = '📍';
+                        else if (label.includes('/GOTO')) emoji = '📌';
+                        else if (label.includes('/GETHERE')) emoji = '📌';
+                        else if (label.includes('/GOTOVEH')) emoji = '📌';
+                        else if (label.includes('/GETVEH')) emoji = '📌';
+                        else if (label.includes('/A')) emoji = '📌';
+                        else if (label.includes('/jail')) emoji = '📌';
+                        else if (label.includes('/UN jail')) emoji = '📌';
+                        else emoji = '💭';
+
+                        return {
+                            name: `${emoji} ${label}`,
+                            value: `\`\`\`${element.value}\`\`\``
+                        };
+                    }),
+                    timestamp: new Date().toISOString()
+                }],
+                components: [{
+                    type: 1,
+                    components: [
+                        {
+                            type: 2,
+                            style: 3,
+                            label: "قبول",
+                            custom_id: `accept_${type}`
+                        },
+                        {
+                            type: 2,
+                            style: 4,
+                            label: "رفض",
+                            custom_id: `reject_${type}`
+                        }
+                    ]
+                }]
+            };
+
+            try {
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(message)
+                });
+                localStorage.setItem('lastSubmissionTime', Date.now().toString());
+                alert('تم إرسال تقديمك بنجاح!');
+                window.location.reload();
+            } catch (error) {
+                alert('حدث خطأ أثناء إرسال التقديم. الرجاء المحاولة مرة أخرى.');
+            }
+        }
+
+        // Initialize application status on page load
+        updateApplicationStatus();
+        document.addEvent
+    </script>
+
+            <p class="text-center" style="color: #8ca2be;">
+                © 2024 Copyright Perfect Network. Developed by (SCAY) / (7ORS)
+            </p>
+        </div>
+</body>
+</html>

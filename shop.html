@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Network | المتجر</title>
+    <link rel="icon" href="imgs/body/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; text-align: right; background-color: #121212; color: #fff; margin: 0; padding: 0; }
+        .container { width: 80%; margin: auto; background: #1e1e3f; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 15px #00c8ff; position: relative; }
+        .container h2 { text-align: center; color: #00c8ff; margin-bottom: 20px; }
+        .cart-icon { position: absolute; top: 20px; left: 20px; background: #00c8ff; color: #1e1e3f; padding: 10px 15px; border-radius: 50px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .cart-icon img { width: 24px; height: 24px; }
+        .cart-count { background: red; color: white; border-radius: 50%; padding: 5px 10px; font-size: 14px; font-weight: bold; }
+        .products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .product { background: #292929; padding: 15px; border-radius: 10px; box-shadow: 0px 0px 15px #00c8ff; width: 250px; text-align: center; transition: transform 0.3s ease-in-out; }
+        .product:hover { transform: scale(1.05); }
+        .product img { width: 100%; border-radius: 10px; border: 2px solid #00c8ff; }
+        .price { color: lightgreen; font-weight: bold; }
+        .discount { color: red; font-weight: bold; }
+        .no-products { text-align: center; font-size: 18px; color: red; margin-top: 20px; }
+        .add-to-cart { background: #00c8ff; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; width: 100%; }
+        .add-to-cart:hover { background: #008fb3; }
+        .home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #00c8ff; /* لون ذهبي */
+    color: black;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 0px 10px #000000;
+    transition: 0.3s;
+}
+
+.home-button i {
+    font-size: 18px;
+}
+
+.home-button:hover {
+    background: darkgoldenrod;
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- زر سلة المشتريات -->
+        <div class="cart-icon" onclick="goToCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>سلة المشتريات</span>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <!-- زر العودة للصفحة الرئيسية -->
+<div class="home-button" onclick="goToHome()">
+    <i class="fa-solid fa-house"></i>
+    <span>العودة للصفحة الرئيسية</span>
+</div>
+        
+        <h2>المتجر</h2>
+        <div class="products" id="products-list"></div>
+        <p class="no-products" id="no-products">لا يوجد منتجات حاليا</p>
+    </div>
+
+    <script>
+        function loadProducts() {
+            var products = JSON.parse(localStorage.getItem("products")) || [];
+            var productsContainer = document.getElementById("products-list");
+            var noProductsMessage = document.getElementById("no-products");
+            productsContainer.innerHTML = "";
+
+            if (products.length === 0) {
+                noProductsMessage.style.display = "block";
+            } else {
+                noProductsMessage.style.display = "none";
+                products.forEach(product => {
+                    var productElement = document.createElement("div");
+                    productElement.classList.add("product");
+                    productElement.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p class="price">السعر: ${product.price} جنيه</p>
+                        <p class="discount">نسبة الخصم: ${product.discount}%</p>
+                        <button class="add-to-cart" onclick="addToCart('${product.name}', '${product.price}', '${product.image}')">إضافة إلى السلة</button>
+                    `;
+                    productsContainer.appendChild(productElement);
+                });
+            }
+            updateCartCount();
+        }
+
+        function addToCart(name, price, image) {
+            var cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name, price, image });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("تمت إضافة المنتج إلى السلة!");
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            var cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById("cart-count").innerText = cart.length;
+        }
+
+        function goToCart() {
+            window.location.href = "Shopping Cart.html";
+        }
+
+        function goToHome() {
+    window.location.href = "index.html"; // استبدل "index.html" برابط الصفحة الرئيسية الفعلي
+}
+
+
+        window.onload = loadProducts;
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" data-bs-theme-mode="dark" dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>سلة المشتريات</title>
+    <link rel="icon" href="imgs/body/logo.png">
+    <link rel="apple-touch-icon" href="imgs/body/logo.png">
+    <meta name="description" content="برفكت نيتورك للحياة الواقعية">
+    <meta name="keywords" content="roleplay,game,MTASA,GTA,حياة واقعية,رول بلاي,لعبة,عربي,برفكت نيتورك,الأفضل">
+    
+ <!-- Meta Tags الخاصة بالتضمين -->
+ <meta property="og:title" content="Perfect Network | برفكت نيتورك" />
+ <meta property="og:description" content="برفكت نيتورك للحياة الواقعية، عالم مليء بالإثارة والتحدي." />
+ <meta property="og:image" content="https://imgur.com/a/Spqgv1F" />
+ <meta property="og:url" content="https://perfectnetwork.github.io/" />
+ <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- روابط المكتبات الخارجية -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="location.reload();">
+                <img src="imgs/body/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="https://perfectnetwork.github.io/">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us">عن السيرفر</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rules.html">القوانين</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Families.html">العائلات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Submissions Department.html">التقديمات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="opss.html">المتجر</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/oauth2/authorize?client_id=1178502660366811206&response_type=code&redirect_uri=https%3A%2F%2Fperfectnetwork.github.io%2Fphp%2Fprocess-oauth.php&scope=identify+email+guilds">
+                            <i class="fa-brands fa-discord"></i>
+                            ربط الدسكورد
+                        </a>
+                    </li>
+                </ul>
+                <a href="login panel.html" class="btn btn-outline-light">تسجيل دخول</a>
+            </div>
+        </div>
+    </nav>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d27;
+            color: rgb(255, 255, 255);
+        }
+        
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #008fb3;
+            padding: 15px;
+            width: 250px;
+            border-radius: 10px;
+            background: #121212;
+            text-align: center;
+            box-shadow: 0 4px 10px hsl(0, 0%, 0%);
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .remove-btn, .confirm-btn {
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .remove-btn {
+            background: red;
+            color: rgb(0, 0, 0);
+        }
+
+        .remove-btn:hover {
+            background: darkred;
+        }
+
+        .confirm-btn {
+            background: #28a745;
+            color: rgb(0, 0, 0);
+        }
+
+        .confirm-btn:hover {
+            background: #218838;
+        }
+
+        /* 🔹 تصميم النافذة السوداء */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+            width: 350px;
+            color: white;
+        }
+
+        .popup-content {
+            position: relative;
+            padding: 20px;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            background: red;
+            padding: 5px 10px;
+            border-radius: 50%;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .popup-close:hover {
+            background: darkred;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input[type="file"] {
+            background: rgb(0, 0, 0);
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        h1 {
+         text-align: right;
+         margin-right: 9px;
+         margin-top: 70px; /* ينزل النص بمقدار 1px */
+         }
+
+
+    </style>
+</head>
+<body>
+    <h1>🛒 سلة المشتريات 🛒</h1>
+    <div class="product-container" id="cart-list"></div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">✖</button>
+            <h2>✅ تأكيد الدفع</h2>
+            <label>🔹 اسم العضو في Discord:</label>
+            <input type="text" id="discord-name" placeholder="مثال: HORS#1234" required>
+            <label>🔹 معرف Discord (ID):</label>
+            <input type="text" id="discord-id" placeholder="123456789012345678" required>
+            <label>🔹 رقم الهاتف المحوّل منه:</label>
+            <input type="text" id="phone-number" placeholder="مثال: 01012345678" required>
+            <label>📷 صورة التحويل:</label>
+            <input type="file" id="transfer-image" accept="image/*">
+            <button class="confirm-btn" onclick="paymentConfirmed()">✅ نعم، تم الدفع</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedProduct = { name: "", price: "" };
+
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cartList = document.getElementById("cart-list");
+            cartList.innerHTML = "";
+            if (cart.length === 0) {
+                cartList.innerHTML = "<p style='font-size: 20px;'>السلة فارغة 🛒</p>";
+                return;
+            }
+            cart.forEach((product, index) => {
+                let productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <p><strong>${product.name}</strong></p>
+                    <p>💰 السعر: ${product.price} ج.م</p>
+                    <button class="remove-btn" onclick="removeFromCart(${index})">❌ إزالة</button>
+                    <button class="confirm-btn" onclick="confirmPurchase('${product.name}', '${product.price}')">✅ تأكيد الشراء</button>
+                `;
+                cartList.appendChild(productElement);
+            });
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        function confirmPurchase(name, price) {
+            selectedProduct = { name, price };
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        async function paymentConfirmed() {
+            const webhookURL = "https://discord.com/api/webhooks/1341541339698958548/v_G7U19GUrOUX8B5PezA7Y62Fef83dq4oBY1IEi26ZioII7R1oRNeKLpocyF4chL0ppB";
+            const discordName = document.getElementById("discord-name").value.trim();
+            const discordID = document.getElementById("discord-id").value.trim();
+            const phoneNumber = document.getElementById("phone-number").value.trim();
+            const imageInput = document.getElementById("transfer-image");
+
+            if (!discordName || !discordID || !phoneNumber) {
+                alert("❌ يُرجى إدخال جميع البيانات المطلوبة!");
+                return;
+            }
+            let formData = new FormData();
+    
+    // إعداد الرسالة مع صورة المنتج كـ Embed
+    const payload = {
+        embeds: [{
+            title: "✅ تم الدفع بنجاح!",
+            description: `📦 **المنتج:** ${selectedProduct.name}\n💰 **السعر:** ${selectedProduct.price} ج.م\n📞 **رقم المحوّل منه:** ${phoneNumber}\n🆔 **معرف الديسكورد:** ${discordID}\n👤 **اسم العضو:** ${discordName}`,
+            image: { url: selectedProduct.image }, // صورة المنتج
+            color: 3066993 // لون مخصص للـ Embed
+        }]
+    };
+
+    formData.append("payload_json", JSON.stringify(payload));
+
+    // إذا تم رفع صورة التحويل، نضيفها كملف
+    if (imageInput.files.length > 0) {
+        formData.append("file", imageInput.files[0]);
+    }
+
+            try {
+                let response = await fetch(webhookURL, { method: "POST", body: formData });
+
+                if (response.ok) {
+                    alert("✅ تم تأكيد الدفع وإرسال الإشعار إلى Discord!");
+                    closePopup();
+                } else {
+                    alert("❌ حدث خطأ أثناء إرسال الإشعار.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("❌ حدث خطأ أثناء الاتصال بالويب هوك.");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+</body>
+</html>
