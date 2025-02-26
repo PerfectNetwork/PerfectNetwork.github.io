@@ -425,10 +425,66 @@ html {
     padding: calc(.775rem + 1px) calc(1.5rem + 1px);
 }
 
+nav {
+            background-color: rgba(15, 23, 42, 0.7);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 44px;
+        }
+
+        .logout-btn {
+          background: red;
+          color: white;
+          border: none;
+         padding: 10px;
+         width: 120px; /* عرض ثابت */
+         border-radius: 26px;
+          cursor: pointer;
+         font-weight: bold;
+         transition: 0.3s;
+}
+
+
+        .logout-btn:hover {
+            background: darkred;
+        }
+
+        .logout-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 50%;
+            transform: translateX(50%);
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1000;
+        }
+
 
     </style>
 </head>
 <body>
+        <!-- شريط التنقل -->
+        <nav>
+            <div class="navbar-brand">
+                <img src="imgs/body/logo.png" alt="Logo">
+            </div>
+            <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+        </nav>
+    
+        <!-- رسالة تسجيل الخروج -->
+        <div id="logout-message" class="logout-message">تم تسجيل الخروج بنجاح</div>
+
     <div class="container">
         <h2>إضافة منتج</h2>
         <form id="product-form">
@@ -523,7 +579,27 @@ html {
             deleteProduct(index);
         }
 
+        function logout() {
+            // حذف بيانات الجلسة
+            localStorage.clear();
+            sessionStorage.clear();
+
+            // إظهار رسالة تسجيل الخروج
+            let message = document.getElementById("logout-message");
+            message.style.display = "block";
+
+            // الانتظار ثم الانتقال إلى صفحة تسجيل الدخول
+            setTimeout(() => {
+                message.style.display = "none";
+                window.location.href = "login panel.html";
+            }, 2000);
+        }
+
         window.onload = loadProducts;
     </script>
+                <p class="text-center" style="color: #8ca2be;">
+                    © 2024 Copyright Perfect Network. Developed by (SCAY) / (7ORS)
+                </p>
+            </div>
 </body>
 </html>
