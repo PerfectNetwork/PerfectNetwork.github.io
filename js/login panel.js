@@ -10,6 +10,8 @@ function checkLogin(event) {
     if ((username === "7ORS" && password === "852010") || 
         (username === "Schider" && password === "838555") ||
         (username === "alknass22" && password === "289199") ||
+        (username === "migo" && password === "@@migo123") ||
+        (username === "3ssf" && password === "3ssf") ||
         (username === "3_1.4" && password === "258963147")) {
 
         // إذا كانت البيانات صحيحة، اعرض رسالة النجاح
